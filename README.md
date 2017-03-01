@@ -1,7 +1,7 @@
 # Loops with Objects
 ## Code-Along: Parting the Sea of Bubbles
 
-Let's start by doing something crazy like add 300 bubbles to the canvas. To do this we will use two loops. In `setup` we'll create a bunch bubble objects and `push` them into the `bubbles` array. In `draw` we'll loop over that `bubbles` array and draw an `ellipse` for each bubble.
+Let's start by doing something crazy like adding 300 bubbles to the canvas. To do this we will use two loops. In `setup` we'll create a bunch bubble objects and `push` them into the `bubbles` array. In `draw` we'll loop over that `bubbles` array and draw an `ellipse` for each bubble.
 
 Paste in this code and then we'll go over it and clean it up:
 
@@ -43,15 +43,15 @@ for (var i = 0; i < 300; i++) {
 
 A few things to take note of here.
 
-The `bubbles` array doesn't yet have anything in it, so notice that the second part of our for loop is `i < 300`. This means "count up to the number `300`". We can;t say something like `bubbles.length` because right now `bubbles.length` is `0`!
+The `bubbles` array doesn't yet have anything in it, so notice that the second part of our `for` loop is `i < 300`. This means "count up to the number `300`". We can't say something like `bubbles.length` because right now `bubbles.length` is `0`!
 
 What exactly is the *one* argument we pass to `push`? There's a lot of text in there, but in fact there is only one thing between the opening `(` and closing `)`.
 
 It's an object!
 
-Since this code is inside of a loop, it will happen many times. We could even declare a variable and each time the loop happens the it's like the variable is declared all over again.
+Since this code is inside of a loop, it will happen many times. We could even declare a variable inside the loop and each time the loop happens the it's like the variable is declared all over again.
 
-I think making that object a variable will make the code a lot easier to follow.
+I think making that object we pass to `push` a variable will make the code a lot easier to follow.
 
 ```javascript
 for (var i = 0; i < 300; i++) {
@@ -84,7 +84,7 @@ If your answer was "An object", you are correct! Each element of the array is a 
 
 So for the first loop `bubbles[i]` is the first object, next time `bubbles[i]` is the second object, and then the third, and so on. Thats why we're able to treat `bubbles[i]` like an object and access it's properties by writing `bubbles[i].x` or `bubbles[i].y`.  
 
-I don't like having `bubbles[i]` all over the code though, it takes my brain a second to decipher what that means and I think we can be more explicit.  Let's store it in a variable called something like `bubble`, or `current`, or `currentBubble` indicating it is the bubble in the loop we are currently dealing with. Replace each `bubbles[i]` with the variable name.
+I don't like having `bubbles[i]` all over the code though, it takes my brain some time to decipher what that means and I think we can be more explicit.  Let's store the value of `bubbles[i]` in a variable called something like `bubble`, or `current`, or `currentBubble` indicating it is the bubble in the loop we are currently dealing with. Replace each `bubbles[i]` with the variable name.
 
 ```javascript
 for(var i = 0; i < bubbles.length; i++) {
@@ -106,7 +106,7 @@ I want to check if the mouse is near the bubble (i.e. the *distance* between the
 ![bubble highlight](https://s3.amazonaws.com/upperline/curriculum-assets/p5js/bubble-highlight.gif)
 
 ```javascript
-// your for loop in the draw fucntion
+// your for loop in the draw function
 // should look similar to this.
 for(var i = 0; i < bubbles.length; i++) {
   var currentBubble = bubbles[i];
@@ -133,7 +133,7 @@ Now that we've shown we can use loops to make changes to each bubble let's see i
 
 ![bubble part](https://s3.amazonaws.com/upperline/curriculum-assets/p5js/bubble-part.gif)
 
-Try it on your own before looking at the finished code below.
+Try it on your own before looking at the finished code below. You may need to use multiple conditionals.
 
 ```javascript
 for(var i = 0; i < bubbles.length; i++) {
@@ -176,7 +176,7 @@ for(var i = 0; i < bubbles.length; i++) {
 
 Now that you understand how to loop over an array of objects you can apply this knowledge in a few challenges
 
-## Challenge
+## Forcefield Challenge
 
 Here's a rocket flying through space moments before entering an asteroid field. As soon it hits an asteroid it will explode.
 
@@ -199,7 +199,7 @@ asteroids = [
 ...]
 ```
 
-If any individual asteroid (*inside the loop*) is within the forcefield (use the variable `forcefieldSize`), flip the direction of it's `xSpeed` and `ySpeed`.
+Loop through `asteroids` and if any individual asteroid is within the forcefield (use the variable `forcefieldSize`), flip the direction of it's `xSpeed` and `ySpeed`.
 
 Here's all the code to paste into a new project, remember you only need to add to the function `applyForcefield`.
 
