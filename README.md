@@ -49,7 +49,7 @@ What exactly is the *one* argument we pass to `push`? There's a lot of text in t
 
 It's an object!
 
-Since this code is inside of a loop, it will happen many times. We could even declare a variable inside the loop and each time the loop happens the it's like the variable is declared all over again.
+Since this code is inside of a loop, it will happen many times. We could even declare a variable inside the loop and each time the loop happens it's like the variable is declared all over again.
 
 I think making that object we pass to `push` a variable will make the code a lot easier to follow.
 
